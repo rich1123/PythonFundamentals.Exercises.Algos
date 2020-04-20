@@ -12,11 +12,17 @@ class Test(unittest.TestCase):
         self.item1 = 1
         self.item2 = 12
         self.item3 = -1
+        self.result = int
 
     def test_binary_search(self):
         self.assertEqual(binary_search(self.list_in1, self.item2), None)
         self.assertEqual(binary_search(self.list_in1, self.item3), None)
         self.assertEqual(binary_search(self.list_in2, self.item1), 0)
+        self.assertEqual(binary_search(self.list_in3, self.item1), 0)
+
+    def test_binary_type(self):
+        self.assertTrue(type(self.result) is int)
+
 
         # binary_search([1, 2, 3, 4, 5], 1)
         # binary_search([1, 2, 3, 4, 5, 6, 7, 8, 9], 12)
@@ -25,8 +31,11 @@ class Test(unittest.TestCase):
     # def test_search_again(self):
     #     with unittest.mock.patch('builtins.print') as mocked_print:
 
-    @patch('builtins.print')
-    def test_print(self, mocked_print):
-        print('foo')
-        print()
-        assert mocked_print.mock_calls == [call('foo'), call()]
+    # @patch('builtins.print')
+    # def test_print(self, mocked_print):
+    #     print('foo')
+    #     print()
+    #     assert mocked_print.mock_calls == [call('foo'), call()]
+
+if __name__ == '__main__':
+	unittest.main()
